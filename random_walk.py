@@ -115,6 +115,10 @@ def runTrial(showHistory, test, p):
 
 def runTest(numTrials, numDaysPerYear, numDays, numStocks, price, genMktBias=0.1):
     #Constants used in testing
+    if numStocks < 0:
+        raise ValueError, "Stocks cannot be negative"
+
+
     params = {}
     params['price'] = price
     params['numDays'] = numDays

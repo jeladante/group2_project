@@ -1,59 +1,61 @@
-import random_walk, pylab
-
-def sim_test(trials, numOfDaysPeryear, numbOfDays, numStocks, price, bias=0.1):
-	random_walk.runTest(trials, numOfDaysPeryear, numbOfDays, numStocks, price, bias)
-	pylab.show()
+import random_walk
+import pylab
+from unittest import TestCase
 
 
-"""
-a test with 2 trials running for 100
-days with 40 stocks with price equals
-to 50. default bias
-"""
-# sim_test(2, 100.0, 100, 40, 50)
+class TestStock(TestCase):
 
-"""
-a test with 4 trials running for 200
-days with 200 stocks with price equals
-to 100 with 0.5 bias
-"""
-# sim_test(4, 200.0, 200, 200, 100, 0.5)
+	def test_check_negative_stock(self, value):
+		self.assertRaises(ValueError, "Stocks cannot be negative")
+	def test_check_zero_stock(self, value):
+		pass
 
-"""
-a test with 3 trials running for 50
-days with 10 stocks with price equals
-to 10 with maximum bias
-"""
-# sim_test(3, 50.0, 50, 10, 10, 1.0)
-
-"""
-a test with 5 trials running for 150
-days with 150 stocks with price equals
-# to 200. bias of 0.3
-"""
-# sim_test(5, 150.0, 150, 150, 200, 0.3)
-
-"""constant values with increasing biases"""
-# sim_test(3, 200.0, 200, 500, 100) #default bias of 0.1
-# sim_test(3, 200.0, 200, 500, 100, 0.2) 
-# sim_test(3, 200.0, 200, 500, 100, 0.3)
-# sim_test(3, 200.0, 200, 500, 100, 0.4)
-sim_test(3, 200.0, 200, 500, 100, 0.5)
-# sim_test(3, 200.0, 200, 500, 100, 0.6)
-# sim_test(3, 200.0, 200, 500, 100, 0.7)
-# sim_test(3, 200.0, 200, 500, 100, 0.8)
-# sim_test(3, 200.0, 200, 500, 100, 0.9)
-# sim_test(3, 200.0, 200, 500, 100, 1.0)
+	def test_check_big_stock(self, value):
+		pass
 
 
-"""
-CONCLUSION
+class TestPrice(TestCase):
 
-	A higher bias in the stock prices will lead to a more predictable change in prices.
-	The momentum tells how affected the prices are based on the former prices.
+	def test_negative_price(self, value):
+		pass
+
+	def test_zero_price(self, value):
+		pass
+
+	def test_high_price(self, value): # check price ceiling
+		pass
+
+class TestBias(TestCase):
+
+	def test_bias_range(self, value):
+		pass
 
 
-	The changes in the graph are most visible when changing the bias compared to other
-	factors such as the number of days, stocks, prices or momentum
-"""
+class TestDays(TestCase):
 
+	def test_days_range(self, value):
+		pass
+
+class TestDataType(TestCase):
+	
+	def test_if_string(self, value):
+		pass
+
+	def test_if_integer(self, value):
+		pass
+
+	def test_if_float(self, value):
+		pass
+
+	def test_if_dict(self, value):
+		pass
+
+	def test_if_list(self, value):
+		pass
+
+
+def run_test_case():
+	pass
+
+def pass_params():
+	pass
